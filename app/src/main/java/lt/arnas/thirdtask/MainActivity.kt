@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.random.Random
 
 val TAG = "my_tag"
 
@@ -29,9 +30,9 @@ class MainActivity : AppCompatActivity() {
     private fun setOnClickButtonListener(){
         clickMeButton.setOnClickListener {
             doTask01()
+            doTask02()
         }
     }
-
     fun doTask01(){
 //        Nuskaitom savaitės dieną iš OS ir atvizduojam rezultatą:
         val sdf = SimpleDateFormat("EEEE")
@@ -40,6 +41,21 @@ class MainActivity : AppCompatActivity() {
         var today = dayOfTheWeek
         Log.i(TAG, "today's day: $dayOfTheWeek")
         task01TextView.text = "Today is $dayOfTheWeek"
+    }
+
+    fun doTask02(){
+        val randomTime = Random.nextInt(0, 10)
+        when(randomTime) {
+            0 -> task02TextView.text = "$randomTime \nUnknown day of week"
+            1 -> task02TextView.text = "Random value is $randomTime \nMonday"
+            2 -> task02TextView.text = "Random value is $randomTime \nTuesday"
+            3 -> task02TextView.text = "Random value is $randomTime \nWednesday"
+            4 -> task02TextView.text = "Random value is $randomTime \nThursday"
+            5 -> task02TextView.text = "Random value is $randomTime \nFriday"
+            6 -> task02TextView.text = "Random value is $randomTime \nSaturday"
+            7 -> task02TextView.text = "Random value is $randomTime \nSunday"
+            8,9,10 -> task02TextView.text = "$randomTime \nUnknown day of week"
+        }
     }
 
 }
