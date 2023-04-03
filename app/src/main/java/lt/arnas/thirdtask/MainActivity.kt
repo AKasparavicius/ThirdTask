@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         clickMeButton.setOnClickListener {
             doTask01()
             doTask02()
+            doTask03()
         }
     }
     fun doTask01(){
@@ -54,7 +55,19 @@ class MainActivity : AppCompatActivity() {
             5 -> task02TextView.text = "Random value is $randomTime \nFriday"
             6 -> task02TextView.text = "Random value is $randomTime \nSaturday"
             7 -> task02TextView.text = "Random value is $randomTime \nSunday"
-            8,9,10 -> task02TextView.text = "$randomTime \nUnknown day of week"
+            in 8..10 -> task02TextView.text = "$randomTime \nUnknown day of week"
+        }
+    }
+
+    fun doTask03(){
+        val randomTime03 = Random.nextInt(0, 10)
+        when(randomTime03){
+            0 -> task03TextView.text = "Random value is $randomTime03 \nUnknown day of the week"
+            in 1..5 -> task03TextView.text = "Random value is $randomTime03 \nToday is working" +
+                                                    " day"
+            6,7 -> task03TextView.text = "Random value is $randomTime03 \nToday is weekend"
+            in 8 .. 10 -> task03TextView.text = "Random value is $randomTime03 \nUnknown day" +
+                                                        " of the week"
         }
     }
 
